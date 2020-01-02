@@ -6,4 +6,4 @@ from flask import Flask
 
 
 def create_app():
-    pass
+    app = Flask(__name__)
