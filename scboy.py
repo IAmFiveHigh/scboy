@@ -1,7 +1,7 @@
 """
   created by IAmFiveHigh on 2020-01-02
  """
-from app_dir.app import create_app
+from app import create_app
 
 
 app = create_app()
