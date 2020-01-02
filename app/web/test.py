@@ -3,12 +3,11 @@
  """
 
 from . import web
-from app.models.topic import Test
-from app.models.base import db
+# from app.models.topic import Test
 
 
 @web.route('/test')
 def test():
-    test11 = Test.query.filter_by(id=2).all()
+    # test11 = Test.query.filter_by(id=2).all()
 
     return "<h1>test</h1>"
