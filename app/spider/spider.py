@@ -36,16 +36,6 @@ def parse_topic(li: Selector):
 
     tag = li.css('div:nth-child(2)>div>a.badge-pill::text').extract_first()
 
-    author_time_original = li.css('div:nth-child(2)>div:nth-child(2)>div>span.date::text').extract_first()
-    author_time = operator(author_time_original)
-
-    l_r_uid = li.css('div:nth-child(2)>div:nth-last-child(1)>div:nth-child(1)>span:nth-last-child(1)>span:nth-last-child(2)::attr(uid)').extract_first()
-
-    last_reply_time_original = li.css('div:nth-child(2)>div:nth-last-child(1)>div:nth-child(1)>span:nth-last-child(1)>span:nth-last-child(1)::text').extract_first()
-    last_reply_time = operator(last_reply_time_original)
-
-    print(f'topic_id: {data_tid}, image_src: {image}, author_id: {aid}, title: {title}, tag: {tag} author_time: {author_time}, last_reply_id: {l_r_uid}, time: {last_reply_time}')
-
 
 def operator(time_text:str):
     if time_text is None:
