@@ -42,6 +42,6 @@ def parse_topic(li: Selector):
 
 
 def operator(time_text:str):
-
+    pass
 
 get_main()
