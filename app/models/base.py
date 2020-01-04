@@ -46,16 +46,12 @@ class Test(Base):
 
 class Topic(Base):
     id = Column(Integer, primary_key=True)
-    image = Column(String(50), default='')
     title = Column(String(200), default='')
     tag = Column(String(20))
+    content = Column(String(1000))
     author = relationship('Author')
     aid = Column(Integer, ForeignKey('author.id'), nullable=False)
     author_time = Column(DateTime)
-    last_reply_user = relationship('Author')
-    l_r_uid = Column(Integer, ForeignKey('author.id'))
-    last_reply_time = Column(DateTime)
-    page_size = Column(Integer, default=1)
     eye_nums = Column(Integer, default=0)
     comment_nums = Column(Integer, default=0)
     thumbs_up_nums = Column(Integer, default=0)
@@ -67,3 +63,14 @@ class Author(Base):
     image = Column(String(50), default='')
     first_login_time = Column(DateTime)
     last_login_time = Column(DateTime)
+
+
+class Comment(Base):
+    id = Column(Integer, primary_key=True)
+    author = relationship('Author')
+    aid = Column(Integer, ForeignKey('author.id'), nullable=False)
+    content = Column(String(1000))
+    comment_time = Column(DateTime, nullable=False)
+    thumbs_up_nums = Column(Integer, default=0)
+    reply_comment = relationship('Comment')
+    reply_comment_id = Column(Integer, ForeignKey('comment.id'), nullable=True)

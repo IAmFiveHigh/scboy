@@ -11,8 +11,9 @@ def create_app():
     app.config.from_object('app.secure')
     app.config.from_object('app.setting')
 
-    db.init_app(app)
-    db.create_all(app=app)
+    with app.app_context():
+        db.init_app(app)
+        db.create_all()
     register_blueprint(app)
     return app
 
