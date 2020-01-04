@@ -86,9 +86,6 @@ def parse_topic_detail(url):
 
 
 def operator(time_text:str):
-    if time_text is None:
-        return None
-
     r = re.match('(\d+)([\u4e00-\u9fa5]*)前', time_text)
 
     number = r.group(1)
@@ -117,4 +114,5 @@ def transform_date(date: str):
 if __name__ == '__main__':
 
     get_main()
+
 
